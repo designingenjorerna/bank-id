@@ -69,6 +69,28 @@ class BankIDService
         return $response;
     }
 
+     /**
+     * @return OrderResponse
+     * @throws ClientException
+     */
+    public function getAutoAuthResponse()
+    {
+        dd('s');
+        $parameters = [
+            'personalNumber' => $personalNumber,
+            'endUserIp'      => $this->endUserIp,
+            'requirement'    => [
+                'allowFingerprint' => true,
+            ],
+        ];
+
+        $responseData = $this->client->post('auth', ['json' => $parameters]);
+
+        $response = new OrderResponse($responseData);
+
+        return $response;
+    }
+
 
     /**
      * @param string $personalNumber The personal number of the user. String. 12 digits. Century must be included.
