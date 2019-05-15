@@ -74,9 +74,8 @@ class BankIDService
      * @throws ClientException
      */
     public function getAutoAuthResponse()
-    {       
-        $parameters = [
-            'personalNumber' => $personalNumber,
+    {
+        $parameters = [            
             'endUserIp'      => $this->endUserIp,
             'requirement'    => [
                 'allowFingerprint' => true,
