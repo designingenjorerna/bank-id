@@ -74,8 +74,7 @@ class BankIDService
      * @throws ClientException
      */
     public function getAutoAuthResponse()
-    {
-        dd('s');
+    {       
         $parameters = [
             'personalNumber' => $personalNumber,
             'endUserIp'      => $this->endUserIp,
